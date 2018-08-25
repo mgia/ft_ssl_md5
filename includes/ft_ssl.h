@@ -8,7 +8,10 @@ struct	s_info
 	int		f_r;
 	int		f_s;
 	int		nb_files;
+	int		offset;
+	char	*arg;
 };
 
 typedef	struct s_info	t_info;
+
 #endif
