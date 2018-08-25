@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin_rev.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtan <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,10 +13,10 @@
 #include "libft.h"
 
 /*
-** ft_strjoin is modified to free the address pointed by param s2.
+** ft_strjoin_rev is modified to free the address pointed by param s1.
 */
 
-char	*ft_strjoin(char const *s1, char **s2)
+char	*ft_strjoin_rev(char const *s1, char **s2)
 {
 	char	*str;
 	char	*tmp;
@@ -28,10 +28,11 @@ char	*ft_strjoin(char const *s1, char **s2)
 		return (NULL);
 	i = -1;
 	j = -1;
-	while (s1[++i])
-		str[i] = s1[i];
-	while (tmp[++j])
-		str[i++] = tmp[j];
+	while (tmp[++i])
+		str[i] = tmp[i];
+	while (s1[++j])
+		str[i++] = s1[j];
+	str[++i] = '\0';
 	free(tmp);
 	return (str);
 }

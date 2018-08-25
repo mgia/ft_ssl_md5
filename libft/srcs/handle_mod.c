@@ -19,7 +19,7 @@ void	handle_mod(char **format, va_list args, int *count)
 
 	ptr = ++(*format);
 	info = init_data();
-	parse_flags(info, &ptr);
+	parse_printf_flags(info, &ptr);
 	parse_width(info, &ptr);
 	parse_precision(info, &ptr);
 	parse_length(info, &ptr);
