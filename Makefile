@@ -43,7 +43,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@make -C $(LIBFT_DIR)
 	@$(CC) $(FLAGS) $(OBJ) $(INC) -L $(LIBFT_DIR) -lft -o $(NAME)
-	@echo "$(GREEN)Binary $(LIGHT_GREEN)$(NAME) $(GREEN)created."
+	@echo "$(WHITE)Binary $(LIGHT_GREEN)$(NAME) $(WHITE)created."
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@mkdir -p $(OBJ_DIR)
