@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utilities.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marc <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/26 18:51:18 by marc              #+#    #+#             */
-/*   Updated: 2018/08/26 18:51:19 by marc             ###   ########.fr       */
+/*   Created: 2018/08/26 18:50:53 by marc              #+#    #+#             */
+/*   Updated: 2018/08/26 18:50:54 by marc             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ssl.h"
 
-static void	run(t_info *d, char **av, int ac)
+uint32_t	left_rotate(uint32_t x, uint32_t c)
 {
-	initialize(d, av, ac);
-	if (d->f_p || !(d->nb_files || d->f_s))
-		print_stdin(d, av[1]);
-	print_args(d, av, ac);
+	return (x << c | x >> (32 - c));
 }
 
-int			main(int ac, char **av)
+uint32_t	right_rotate(uint32_t x, int c)
 {
-	t_info	d;
+	return (x >> c) | (x << (32 - c));
+}
 
-	if (ac == 1)
-		return (kill(0));
-	if (ft_strequ(av[1], "md5") || ft_strequ(av[1], "sha256")
-		|| ft_strequ(av[1], "sha512"))
-		run(&d, av, ac);
-	else
-		kill(av[1]);
-	return (0);
+uint64_t	right_rotate_64(uint64_t x, int c)
+{
+	return (x >> c) | (x << (64 - c));
 }
