@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sha512.h                                           :+:      :+:    :+:   */
+/*   md5.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtan <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/14 13:47:31 by mtan              #+#    #+#             */
-/*   Updated: 2018/11/14 13:47:34 by mtan             ###   ########.fr       */
+/*   Created: 2018/11/14 13:45:41 by mtan              #+#    #+#             */
+/*   Updated: 2018/11/14 13:45:43 by mtan             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHA512_H
-# define SHA512_H
+#ifndef MD5_H
+# define MD5_H
 
-extern const uint64_t	g_sha512_k[];
+extern const uint32_t g_md5_s[];
+extern const uint32_t g_md5_k[];
 
-struct	s_sha512_buffer
+struct		s_md5_buffer
 {
-	uint64_t	a;
-	uint64_t	b;
-	uint64_t	c;
-	uint64_t	d;
-	uint64_t	e;
-	uint64_t	f;
-	uint64_t	g;
-	uint64_t	h;
+	uint32_t	a;
+	uint32_t	b;
+	uint32_t	c;
+	uint32_t	d;
+	uint32_t	f;
+	uint32_t	g;
 };
 
-typedef struct s_sha512_buffer	t_sha512;
-
-void	process_sha512_chunk(unsigned char *chunk, uint64_t *block);
+typedef struct s_md5_buffer	t_md5;
 
 #endif

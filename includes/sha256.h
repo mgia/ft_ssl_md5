@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sha256.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mtan <marvin@42.fr>                        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/11/14 13:47:28 by mtan              #+#    #+#             */
+/*   Updated: 2018/11/14 13:47:29 by mtan             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SHA256_H
 # define SHA256_H
 
-extern const uint32_t sha256_k[];
+extern const uint32_t	g_sha256_k[];
 
 struct	s_sha256_buffer
 {
@@ -17,6 +29,6 @@ struct	s_sha256_buffer
 
 typedef struct s_sha256_buffer	t_sha256;
 
-void		process_sha256_chunk(unsigned char *chunk, uint32_t *block);
+void	process_sha256_chunk(unsigned char *chunk, uint32_t *block);
 
 #endif
