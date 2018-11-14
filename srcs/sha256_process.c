@@ -58,7 +58,7 @@ static void	compression_function(t_sha256 *buf, uint32_t m_arr[64], int i)
 		s1 = right_rotate(buf->e, 6) ^ right_rotate(buf->e, 11) ^
 				right_rotate(buf->e, 25);
 		ch = (buf->e & buf->f) ^ ((~(buf->e)) & buf->g);
-		temp1 = buf->h + s1 + ch + sha256_k[i] + m_arr[i];
+		temp1 = buf->h + s1 + ch + g_sha256_k[i] + m_arr[i];
 		s0 = right_rotate(buf->a, 2) ^ right_rotate(buf->a, 13) ^
 				right_rotate(buf->a, 22);
 		maj = (buf->a & buf->b) ^ (buf->a & buf->c) ^ (buf->b & buf->c);

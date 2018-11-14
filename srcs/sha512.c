@@ -33,6 +33,7 @@ static uint64_t	*init_buffer(void)
 	block[7] = 0x5be0cd19137e2179;
 	return (block);
 }
+
 /*
 **	Pre-processing message:
 **	1. Find new length of padded message (divisible by 512)

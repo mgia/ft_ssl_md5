@@ -61,7 +61,7 @@ static void	compression_function(t_sha512 *buf, uint64_t m_arr[80], int i)
 		s1 = right_rotate_64(buf->e, 14) ^ right_rotate_64(buf->e, 18) ^
 				right_rotate_64(buf->e, 41);
 		ch = (buf->e & buf->f) ^ ((~(buf->e)) & buf->g);
-		temp1 = buf->h + s1 + ch + sha512_k[i] + m_arr[i];
+		temp1 = buf->h + s1 + ch + g_sha512_k[i] + m_arr[i];
 		buf->h = buf->g;
 		buf->g = buf->f;
 		buf->f = buf->e;
@@ -104,7 +104,5 @@ void		process_sha512_chunk(unsigned char *chunk, uint64_t *block)
 	init_msg_schedule_arr(words, m_arr);
 	init_working_variables(&buf, block);
 	compression_function(&buf, m_arr, 0);
-	// printf("%llu %llu %llu %llu %llu %llu %llu %llu ", buf.a, buf.b, buf.c, buf.d, buf.e, buf.f, buf.g, buf.h);
-	// 	printf("\n");
 	append_to_hash(&buf, block);
 }

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_ssl.h"
+#include "md5.h"
 
 /*
 **	Initialize blocks:
@@ -40,7 +41,7 @@ static uint32_t			*init_buffer(void)
 static unsigned char	*pad_md5_msg(unsigned char *init_msg, size_t *len)
 {
 	unsigned char	*msg;
-	int		new_len;
+	int				new_len;
 
 	new_len = *len + 1;
 	while (new_len % 64 != 56)
@@ -104,7 +105,8 @@ static void				process_chunk(unsigned char *chunk, uint32_t *block)
 		tmp = buf.d;
 		buf.d = buf.c;
 		buf.c = buf.b;
-		buf.b = buf.b + left_rotate((buf.a + buf.f + md5_k[i] + word[buf.g]), md5_s[i]);
+		buf.b += left_rotate((buf.a + buf.f + g_md5_k[i] + word[buf.g]),
+					g_md5_s[i]);
 		buf.a = tmp;
 	}
 	block[0] += buf.a;

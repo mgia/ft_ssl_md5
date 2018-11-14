@@ -33,7 +33,8 @@ int			get_file(t_info *d, char *name, char *hash)
 
 	if ((fd = open(name, O_RDONLY)) < 0)
 	{
-		ft_printf("ft_ssl: %s: %s: No such file or directory found\n", name, hash);
+		ft_putstr("ft_ssl: ");
+		ft_printf("%s: %s: No such file or directory found\n", name, hash);
 		return (0);
 	}
 	fstat(fd, &stat);

@@ -39,7 +39,7 @@ static void	parse_flags(t_info *d, char **av, int ac)
 	d->offset = i;
 }
 
-void	initialize(t_info *d, char **av, int ac)
+void		initialize(t_info *d, char **av, int ac)
 {
 	d->f_p = 0;
 	d->f_q = 0;
